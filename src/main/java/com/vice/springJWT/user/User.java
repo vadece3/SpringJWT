@@ -32,8 +32,9 @@ public class User implements UserDetails {
 	private String firstname;
 	private String lastname;
 	private String email;
-	private String pass;
-	
+	private String password;
+
+
 	@Enumerated(EnumType.STRING)
 	private Role role;
 	
@@ -42,6 +43,7 @@ public class User implements UserDetails {
 		return List.of(new SimpleGrantedAuthority(role.name()));
 	}
 	
+	
 	@Override
 	public String getUsername() {
 		return email;
@@ -49,8 +51,9 @@ public class User implements UserDetails {
 	
 	@Override
 	public String getPassword() {
-		return pass;
+		return password;
 	}
+	
 	
 	@Override
 	public boolean isAccountNonExpired() {
@@ -71,5 +74,6 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
+	
 
 }
